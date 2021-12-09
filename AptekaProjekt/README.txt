@@ -3,7 +3,7 @@ Short describe AptekaProjekt:
 		-App.java; Main method
 	/docs:
 		-diagram ERD.png;
-		-pharmacy.sql; (backup and example)
+		-apteka.sql; (backup and example)
 
 Note:
 	"Project was created using:

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hibernate-configuration>
     <session-factory>
-
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="javax.persistence.jdbc.user"/>
         <property name="javax.persistence.jdbc.password"/>
@@ -13,10 +12,12 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <mapping class="com.isjackalive.dbs.Pacjenci"/>
         <mapping class="com.isjackalive.dbs.Recepta"/>
-
+        <mapping class="com.isjackalive.dbs.Apteka"/>
+        <mapping class="com.isjackalive.dbs.Doktorzy"/>
+        <mapping class="com.isjackalive.dbs.Produkty"/>
     </session-factory>
 </hibernate-configuration>

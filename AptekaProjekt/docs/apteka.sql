@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 04 Gru 2021, 21:18
+-- Czas generowania: 09 Gru 2021, 23:46
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 7.3.31
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `pharmacy`
+-- Baza danych: `apteka`
 --
 
 -- --------------------------------------------------------
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Apteka` (
   `id_apteka` int(11) NOT NULL,
-  `adres` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `telefon` text COLLATE utf8mb4_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+  `adres` varchar(255) DEFAULT NULL,
+  `telefon` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `Apteka`
@@ -52,10 +52,10 @@ INSERT INTO `Apteka` (`id_apteka`, `adres`, `telefon`) VALUES
 
 CREATE TABLE `Doktorzy` (
   `id_doktor` int(11) NOT NULL,
-  `imie` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `nazwisko` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `telefon` text COLLATE utf8mb4_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+  `imie` varchar(255) DEFAULT NULL,
+  `nazwisko` varchar(255) DEFAULT NULL,
+  `telefon` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `Doktorzy`
@@ -79,10 +79,10 @@ INSERT INTO `Doktorzy` (`id_doktor`, `imie`, `nazwisko`, `telefon`) VALUES
 
 CREATE TABLE `Pacjenci` (
   `id_pacjent` int(11) NOT NULL,
-  `imie` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `nazwisko` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `telefon` text COLLATE utf8mb4_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+  `imie` varchar(255) DEFAULT NULL,
+  `nazwisko` varchar(11) DEFAULT NULL,
+  `telefon` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `Pacjenci`
@@ -197,118 +197,118 @@ INSERT INTO `Pacjenci` (`id_pacjent`, `imie`, `nazwisko`, `telefon`) VALUES
 --
 
 CREATE TABLE `Produkty` (
-  `id_produktu` int(11) NOT NULL,
-  `id_apteka` int(11) NOT NULL,
-  `nazwa` text COLLATE utf8mb4_polish_ci NOT NULL,
-  `data_wydania` date NOT NULL,
-  `cena` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+  `id_produkt` int(11) NOT NULL,
+  `cena` int(11) DEFAULT NULL,
+  `data_wydania` datetime DEFAULT NULL,
+  `id_apteka` int(11) DEFAULT NULL,
+  `nazwa` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `Produkty`
 --
 
-INSERT INTO `Produkty` (`id_produktu`, `id_apteka`, `nazwa`, `data_wydania`, `cena`) VALUES
-(1, 2, 'Lorazepam', '2021-10-22', 50),
-(2, 5, 'Nighttime Multi-Symptom Cold and Flu Relief', '2021-03-29', 67),
-(3, 1, 'Indomethacin', '2021-08-19', 68),
-(4, 2, 'Corvert', '2020-12-03', 59),
-(5, 3, 'Naproxen Kit', '2021-01-08', 134),
-(6, 4, 'Anti-Bacterial Hand Spray', '2021-06-11', 156),
-(7, 5, 'ARTHRITIS-EASE', '2021-01-20', 134),
-(8, 2, 'Antibacterial Wet Wipes', '2021-03-12', 45),
-(9, 1, 'SKELAXIN', '2021-06-03', 39),
-(10, 2, 'Head and Shoulders', '2021-04-27', 265),
-(11, 5, 'ZinClear SPF 30 Tinted', '2021-04-28', 240),
-(12, 2, 'AMITRIPTYLINE HYDROCHLORIDE', '2021-07-19', 79),
-(13, 5, 'Virginia Live Oak', '2021-06-22', 54),
-(14, 2, 'AcipHex', '2021-01-29', 44),
-(15, 5, 'in control Nicotine', '2021-04-14', 58),
-(16, 2, 'ATORVASTATIN CALCIUM', '2021-04-28', 150),
-(17, 5, 'Privine', '2021-10-14', 267),
-(18, 4, 'Levetiracetam', '2021-07-18', 131),
-(19, 1, 'ARTHROTEC', '2021-05-13', 207),
-(20, 5, 'ADVAIR', '2021-10-08', 33),
-(21, 5, 'Atenolol', '2021-06-01', 135),
-(22, 4, 'Isosorbide Sublingual', '2021-10-29', 32),
-(23, 1, 'Alcohol Prep Pad', '2021-11-30', 144),
-(24, 1, 'CPD', '2021-09-19', 296),
-(25, 4, 'Ranitidine', '2021-10-14', 268),
-(26, 4, 'BIOTENE', '2021-06-30', 285),
-(27, 4, 'Amiodarone Hydrochloride', '2021-03-26', 267),
-(28, 1, 'Smart Sense Hemorrhoidal', '2021-02-21', 236),
-(29, 5, 'Ursodiol', '2021-01-23', 49),
-(30, 3, 'BABY SKIN', '2021-05-31', 297),
-(31, 1, 'ANTI AGE STRESS', '2021-10-10', 35),
-(32, 1, 'Infants Simethicone', '2020-12-09', 287),
-(33, 3, 'Nobac Plus E3', '2021-09-23', 283),
-(34, 2, 'ACETAMINOPHEN AND CODEINE PHOSPHATE', '2021-03-02', 271),
-(35, 4, 'Sheer Defense Tinted Moisturizer Broad Spectrum SPF 15 M50', '2021-08-22', 48),
-(36, 1, 'Xodol', '2021-04-26', 34),
-(37, 1, 'Miconazole 1', '2021-10-31', 122),
-(38, 3, 'Diurex', '2021-08-20', 232),
-(39, 4, 'Grama Grass', '2020-12-19', 125),
-(40, 1, 'Theophylline', '2021-08-24', 78),
-(41, 3, 'PHACE BIOACTIVE CLARIFYING SERUM', '2021-07-24', 204),
-(42, 1, 'Zolpidem Tartrate', '2021-11-18', 96),
-(43, 3, 'LBEL', '2021-10-21', 109),
-(44, 5, 'Citalopram', '2021-09-18', 272),
-(45, 4, 'BICILLIN CR', '2021-07-16', 48),
-(46, 5, 'RISPERDAL CONSTA', '2021-01-16', 164),
-(47, 4, 'Amar Petroleum', '2021-04-11', 213),
-(48, 3, 'Minoxidil', '2021-01-15', 125),
-(49, 2, 'Relief-PE', '2021-09-24', 97),
-(50, 1, 'Synalar', '2021-07-11', 262),
-(51, 3, 'Ropinirole Hydrochloride', '2021-10-02', 175),
-(52, 1, 'SEROQUEL', '2021-10-05', 114),
-(53, 5, 'Hydrocodone Bitartrate and Acetaminophen', '2021-11-24', 249),
-(54, 3, 'CLOBETASOL PROPIONATE', '2021-02-23', 137),
-(55, 2, 'Midazolam hydrochloride', '2021-04-09', 266),
-(56, 3, 'Isosorbide Dinitrate', '2021-08-29', 177),
-(57, 3, 'healthy accents pain relief pm', '2021-01-16', 75),
-(58, 3, 'OPANA', '2021-04-23', 130),
-(59, 1, 'Quetiapine fumarate', '2021-04-20', 242),
-(60, 5, 'Publix Alcohol', '2021-10-20', 59),
-(61, 2, 'Cough and Cold Relief HBP', '2021-01-30', 101),
-(62, 1, 'BIONA-VIT', '2021-06-05', 238),
-(63, 2, 'Aromasin', '2021-02-20', 281),
-(64, 1, 'Lovastatin', '2021-10-27', 265),
-(65, 4, 'Dicyclomine Hydrochloride', '2021-05-23', 77),
-(66, 4, 'Lidocaine Hydrochloride', '2021-08-11', 78),
-(67, 4, 'Fenofibrate', '2021-04-14', 189),
-(68, 2, 'CPD/ADSOL Red Cell Preservation Solution System (PL 2209)', '2021-07-24', 217),
-(69, 1, 'Lactulose', '2021-06-13', 142),
-(70, 5, 'Analgesic', '2021-09-29', 161),
-(71, 2, 'Warfarin Sodium', '2021-04-02', 141),
-(72, 1, 'EZ Nite Sleep', '2021-05-08', 264),
-(73, 2, 'Cover Fx Blemish Treatment Concealer N Med-Deep', '2021-09-20', 126),
-(74, 2, 'Cotz Face (For Lighter Skin Tones) SPF 40', '2021-04-01', 176),
-(75, 3, 'Aminocaproic Acid', '2021-03-19', 26),
-(76, 1, 'Amiloride Hydrochloride and Hydrochlorothiazide', '2021-08-08', 66),
-(77, 2, 'Polyethylene Glycol (3350)', '2021-04-12', 178),
-(78, 2, 'Venlafaxine Hydrochloride', '2021-08-05', 61),
-(79, 2, 'Oxycodone and Acetaminophen', '2021-11-13', 222),
-(80, 3, 'Original Antibacterial foaming hand', '2021-01-01', 146),
-(81, 4, 'Cephalexin', '2021-05-31', 274),
-(82, 5, 'losartan potassium', '2021-01-18', 49),
-(83, 5, 'Povidone Iodine Scrub', '2021-06-03', 291),
-(84, 4, 'Hepar Magnesium 4', '2021-01-12', 162),
-(85, 5, 'Levalbuterol', '2021-07-13', 167),
-(86, 5, 'Supress DM', '2021-01-15', 87),
-(87, 3, 'Nighttime Sleep Aid', '2021-11-27', 155),
-(88, 3, 'VIDAZA', '2021-07-29', 200),
-(89, 2, 'ESIKA Silk Skin SPF 9', '2021-06-26', 201),
-(90, 4, 'Nifedipine', '2021-02-02', 258),
-(91, 4, 'Torsemide', '2021-09-20', 114),
-(92, 2, 'GENOTROPIN', '2020-12-31', 126),
-(93, 2, 'Chlorpromazine Hydrochloride', '2021-02-22', 223),
-(94, 2, 'PhysiciansCare Antacid', '2021-05-17', 43),
-(95, 2, 'Molds, Rusts and Smuts, Stemphylium botryosum', '2021-06-14', 233),
-(96, 3, 'ISOPROPYL ALCOHOL ANTISEPTIC GERMICIDE', '2020-12-17', 227),
-(97, 3, 'MEDROX', '2021-07-27', 131),
-(98, 1, 'Aztreonam', '2021-07-20', 152),
-(99, 4, 'Zaleplon', '2021-03-03', 213),
-(100, 1, 'Pleo Spermus', '2021-05-03', 222);
+INSERT INTO `Produkty` (`id_produkt`, `cena`, `data_wydania`, `id_apteka`, `nazwa`) VALUES
+(1, 50, '2021-10-22 00:00:00', 2, 'Lorazepam'),
+(2, 67, '2021-03-29 00:00:00', 5, 'Nighttime Multi-Symptom Cold and Flu Relief'),
+(3, 68, '2021-08-19 00:00:00', 1, 'Indomethacin'),
+(4, 59, '2020-12-03 00:00:00', 2, 'Corvert'),
+(5, 134, '2021-01-08 00:00:00', 3, 'Naproxen Kit'),
+(6, 156, '2021-06-11 00:00:00', 4, 'Anti-Bacterial Hand Spray'),
+(7, 134, '2021-01-20 00:00:00', 5, 'ARTHRITIS-EASE'),
+(8, 45, '2021-03-12 00:00:00', 2, 'Antibacterial Wet Wipes'),
+(9, 39, '2021-06-03 00:00:00', 1, 'SKELAXIN'),
+(10, 265, '2021-04-27 00:00:00', 2, 'Head and Shoulders'),
+(11, 240, '2021-04-28 00:00:00', 5, 'ZinClear SPF 30 Tinted'),
+(12, 79, '2021-07-19 00:00:00', 2, 'AMITRIPTYLINE HYDROCHLORIDE'),
+(13, 54, '2021-06-22 00:00:00', 5, 'Virginia Live Oak'),
+(14, 44, '2021-01-29 00:00:00', 2, 'AcipHex'),
+(15, 58, '2021-04-14 00:00:00', 5, 'in control Nicotine'),
+(16, 150, '2021-04-28 00:00:00', 2, 'ATORVASTATIN CALCIUM'),
+(17, 267, '2021-10-14 00:00:00', 5, 'Privine'),
+(18, 131, '2021-07-18 00:00:00', 4, 'Levetiracetam'),
+(19, 207, '2021-05-13 00:00:00', 1, 'ARTHROTEC'),
+(20, 33, '2021-10-08 00:00:00', 5, 'ADVAIR'),
+(21, 135, '2021-06-01 00:00:00', 5, 'Atenolol'),
+(22, 32, '2021-10-29 00:00:00', 4, 'Isosorbide Sublingual'),
+(23, 144, '2021-11-30 00:00:00', 1, 'Alcohol Prep Pad'),
+(24, 296, '2021-09-19 00:00:00', 1, 'CPD'),
+(25, 268, '2021-10-14 00:00:00', 4, 'Ranitidine'),
+(26, 285, '2021-06-30 00:00:00', 4, 'BIOTENE'),
+(27, 267, '2021-03-26 00:00:00', 4, 'Amiodarone Hydrochloride'),
+(28, 236, '2021-02-21 00:00:00', 1, 'Smart Sense Hemorrhoidal'),
+(29, 49, '2021-01-23 00:00:00', 5, 'Ursodiol'),
+(30, 297, '2021-05-31 00:00:00', 3, 'BABY SKIN'),
+(31, 35, '2021-10-10 00:00:00', 1, 'ANTI AGE STRESS'),
+(32, 287, '2020-12-09 00:00:00', 1, 'Infants Simethicone'),
+(33, 283, '2021-09-23 00:00:00', 3, 'Nobac Plus E3'),
+(34, 271, '2021-03-02 00:00:00', 2, 'ACETAMINOPHEN AND CODEINE PHOSPHATE'),
+(35, 48, '2021-08-22 00:00:00', 4, 'Sheer Defense Tinted Moisturizer Broad Spectrum SPF 15 M50'),
+(36, 34, '2021-04-26 00:00:00', 1, 'Xodol'),
+(37, 122, '2021-10-31 00:00:00', 1, 'Miconazole 1'),
+(38, 232, '2021-08-20 00:00:00', 3, 'Diurex'),
+(39, 125, '2020-12-19 00:00:00', 4, 'Grama Grass'),
+(40, 78, '2021-08-24 00:00:00', 1, 'Theophylline'),
+(41, 204, '2021-07-24 00:00:00', 3, 'PHACE BIOACTIVE CLARIFYING SERUM'),
+(42, 96, '2021-11-18 00:00:00', 1, 'Zolpidem Tartrate'),
+(43, 109, '2021-10-21 00:00:00', 3, 'LBEL'),
+(44, 272, '2021-09-18 00:00:00', 5, 'Citalopram'),
+(45, 48, '2021-07-16 00:00:00', 4, 'BICILLIN CR'),
+(46, 164, '2021-01-16 00:00:00', 5, 'RISPERDAL CONSTA'),
+(47, 213, '2021-04-11 00:00:00', 4, 'Amar Petroleum'),
+(48, 125, '2021-01-15 00:00:00', 3, 'Minoxidil'),
+(49, 97, '2021-09-24 00:00:00', 2, 'Relief-PE'),
+(50, 262, '2021-07-11 00:00:00', 1, 'Synalar'),
+(51, 175, '2021-10-02 00:00:00', 3, 'Ropinirole Hydrochloride'),
+(52, 114, '2021-10-05 00:00:00', 1, 'SEROQUEL'),
+(53, 249, '2021-11-24 00:00:00', 5, 'Hydrocodone Bitartrate and Acetaminophen'),
+(54, 137, '2021-02-23 00:00:00', 3, 'CLOBETASOL PROPIONATE'),
+(55, 266, '2021-04-09 00:00:00', 2, 'Midazolam hydrochloride'),
+(56, 177, '2021-08-29 00:00:00', 3, 'Isosorbide Dinitrate'),
+(57, 75, '2021-01-16 00:00:00', 3, 'healthy accents pain relief pm'),
+(58, 130, '2021-04-23 00:00:00', 3, 'OPANA'),
+(59, 242, '2021-04-20 00:00:00', 1, 'Quetiapine fumarate'),
+(60, 59, '2021-10-20 00:00:00', 5, 'Publix Alcohol'),
+(61, 101, '2021-01-30 00:00:00', 2, 'Cough and Cold Relief HBP'),
+(62, 238, '2021-06-05 00:00:00', 1, 'BIONA-VIT'),
+(63, 281, '2021-02-20 00:00:00', 2, 'Aromasin'),
+(64, 265, '2021-10-27 00:00:00', 1, 'Lovastatin'),
+(65, 77, '2021-05-23 00:00:00', 4, 'Dicyclomine Hydrochloride'),
+(66, 78, '2021-08-11 00:00:00', 4, 'Lidocaine Hydrochloride'),
+(67, 189, '2021-04-14 00:00:00', 4, 'Fenofibrate'),
+(68, 217, '2021-07-24 00:00:00', 2, 'CPD/ADSOL Red Cell Preservation Solution System (PL 2209)'),
+(69, 142, '2021-06-13 00:00:00', 1, 'Lactulose'),
+(70, 161, '2021-09-29 00:00:00', 5, 'Analgesic'),
+(71, 141, '2021-04-02 00:00:00', 2, 'Warfarin Sodium'),
+(72, 264, '2021-05-08 00:00:00', 1, 'EZ Nite Sleep'),
+(73, 126, '2021-09-20 00:00:00', 2, 'Cover Fx Blemish Treatment Concealer N Med-Deep'),
+(74, 176, '2021-04-01 00:00:00', 2, 'Cotz Face (For Lighter Skin Tones) SPF 40'),
+(75, 26, '2021-03-19 00:00:00', 3, 'Aminocaproic Acid'),
+(76, 66, '2021-08-08 00:00:00', 1, 'Amiloride Hydrochloride and Hydrochlorothiazide'),
+(77, 178, '2021-04-12 00:00:00', 2, 'Polyethylene Glycol (3350)'),
+(78, 61, '2021-08-05 00:00:00', 2, 'Venlafaxine Hydrochloride'),
+(79, 222, '2021-11-13 00:00:00', 2, 'Oxycodone and Acetaminophen'),
+(80, 146, '2021-01-01 00:00:00', 3, 'Original Antibacterial foaming hand'),
+(81, 274, '2021-05-31 00:00:00', 4, 'Cephalexin'),
+(82, 49, '2021-01-18 00:00:00', 5, 'losartan potassium'),
+(83, 291, '2021-06-03 00:00:00', 5, 'Povidone Iodine Scrub'),
+(84, 162, '2021-01-12 00:00:00', 4, 'Hepar Magnesium 4'),
+(85, 167, '2021-07-13 00:00:00', 5, 'Levalbuterol'),
+(86, 87, '2021-01-15 00:00:00', 5, 'Supress DM'),
+(87, 155, '2021-11-27 00:00:00', 3, 'Nighttime Sleep Aid'),
+(88, 200, '2021-07-29 00:00:00', 3, 'VIDAZA'),
+(89, 201, '2021-06-26 00:00:00', 2, 'ESIKA Silk Skin SPF 9'),
+(90, 258, '2021-02-02 00:00:00', 4, 'Nifedipine'),
+(91, 114, '2021-09-20 00:00:00', 4, 'Torsemide'),
+(92, 126, '2020-12-31 00:00:00', 2, 'GENOTROPIN'),
+(93, 223, '2021-02-22 00:00:00', 2, 'Chlorpromazine Hydrochloride'),
+(94, 43, '2021-05-17 00:00:00', 2, 'PhysiciansCare Antacid'),
+(95, 233, '2021-06-14 00:00:00', 2, 'Molds, Rusts and Smuts, Stemphylium botryosum'),
+(96, 227, '2020-12-17 00:00:00', 3, 'ISOPROPYL ALCOHOL ANTISEPTIC GERMICIDE'),
+(97, 131, '2021-07-27 00:00:00', 3, 'MEDROX'),
+(98, 152, '2021-07-20 00:00:00', 1, 'Aztreonam'),
+(99, 213, '2021-03-03 00:00:00', 4, 'Zaleplon'),
+(100, 222, '2021-05-03 00:00:00', 1, 'Pleo Serno');
 
 -- --------------------------------------------------------
 
@@ -318,10 +318,10 @@ INSERT INTO `Produkty` (`id_produktu`, `id_apteka`, `nazwa`, `data_wydania`, `ce
 
 CREATE TABLE `Recepta` (
   `id_recepta` int(11) NOT NULL,
-  `id_doktor` int(11) NOT NULL,
-  `id_pacjent` int(11) NOT NULL,
-  `id_produkt` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+  `id_doktor` int(11) DEFAULT NULL,
+  `id_pacjent` int(11) DEFAULT NULL,
+  `id_produkt` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Zrzut danych tabeli `Recepta`
@@ -455,35 +455,13 @@ ALTER TABLE `Pacjenci`
 -- Indeksy dla tabeli `Produkty`
 --
 ALTER TABLE `Produkty`
-  ADD PRIMARY KEY (`id_produktu`),
-  ADD KEY `id_apteka` (`id_apteka`);
+  ADD PRIMARY KEY (`id_produkt`);
 
 --
 -- Indeksy dla tabeli `Recepta`
 --
 ALTER TABLE `Recepta`
-  ADD PRIMARY KEY (`id_recepta`),
-  ADD KEY `id_doktor` (`id_doktor`),
-  ADD KEY `id_pacjent` (`id_pacjent`),
-  ADD KEY `id_produkt` (`id_produkt`);
-
---
--- Ograniczenia dla zrzutów tabel
---
-
---
--- Ograniczenia dla tabeli `Produkty`
---
-ALTER TABLE `Produkty`
-  ADD CONSTRAINT `Produkty_ibfk_1` FOREIGN KEY (`id_apteka`) REFERENCES `Apteka` (`id_apteka`),
-  ADD CONSTRAINT `Produkty_ibfk_2` FOREIGN KEY (`id_produktu`) REFERENCES `Recepta` (`id_produkt`);
-
---
--- Ograniczenia dla tabeli `Recepta`
---
-ALTER TABLE `Recepta`
-  ADD CONSTRAINT `Recepta_ibfk_1` FOREIGN KEY (`id_pacjent`) REFERENCES `Pacjenci` (`id_pacjent`),
-  ADD CONSTRAINT `Recepta_ibfk_2` FOREIGN KEY (`id_doktor`) REFERENCES `Doktorzy` (`id_doktor`);
+  ADD PRIMARY KEY (`id_recepta`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
