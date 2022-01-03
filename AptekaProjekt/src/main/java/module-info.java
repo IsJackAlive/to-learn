@@ -6,9 +6,11 @@ module com.isjackalive {
     requires java.naming;
     requires java.sql;
 
+    opens com.isjackalive.entity to org.hibernate.orm.core;
     opens com.isjackalive to javafx.fxml;
-    opens com.isjackalive.dbs to org.hibernate.orm.core;
 
     exports com.isjackalive;
-    exports com.isjackalive.dbs;
+    exports com.isjackalive.entity;
+    exports com.isjackalive.Controller;
+    opens com.isjackalive.Controller to javafx.fxml;
 }

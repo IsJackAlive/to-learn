@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hibernate-configuration>
     <session-factory>
+<<<<<<< Updated upstream
 
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="javax.persistence.jdbc.user"/>
@@ -11,12 +12,24 @@
         <property name="hibernate.connection.charSet">UTF-8</property>
         <property name="hibernate.connection.characterEncoding">UTF-8</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+=======
+        <property name="dialect">org.sqlite.hibernate.dialect.SQLiteDialect</property>
+        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:liteDatabase/apteka.db</property>
+>>>>>>> Stashed changes
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
 
+<<<<<<< Updated upstream
         <mapping class="com.isjackalive.dbs.Pacjenci"/>
         <mapping class="com.isjackalive.dbs.Recepta"/>
 
+=======
+        <mapping class="com.isjackalive.entity.Pacjent"/>
+        <mapping class="com.isjackalive.entity.Recepta"/>
+        <mapping class="com.isjackalive.entity.Doktor"/>
+        <mapping class="com.isjackalive.entity.Produkt"/>
+>>>>>>> Stashed changes
     </session-factory>
 </hibernate-configuration>
