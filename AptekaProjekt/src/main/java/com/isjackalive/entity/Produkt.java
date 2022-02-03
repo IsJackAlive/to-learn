@@ -14,7 +14,7 @@ public class Produkt {
     private Integer cena;
 
     @Column(name = "data_wydania")
-    private Instant dataWydania;
+    private Instant data;
 
     @Column(name = "nazwa")
     private String nazwa;
@@ -39,12 +39,12 @@ public class Produkt {
         this.cena = cena;
     }
 
-    public Instant getDataWydania() {
-        return dataWydania;
+    public Instant getData() {
+        return data;
     }
 
-    public void setDataWydania(Instant dataWydania) {
-        this.dataWydania = dataWydania;
+    public void setData(Instant data) {
+        this.data = data;
     }
 
     public String getNazwa() {

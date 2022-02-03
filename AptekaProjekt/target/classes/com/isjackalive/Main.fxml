@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+    <children>
+        <TabPane fx:id="MainTab" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <tabs>
+                <Tab fx:id="DoktorzyTabela" text="Doktorzy">
+                    <content>
+                        <fx:include fx:id="doktorViewId" source="doktorView.fxml" />
+                    </content>
+                </Tab>
+                <Tab fx:id="PacjenciTabela" text="Pacjenci">
+                    <content>
+                        <fx:include fx:id="pacjentViewId" source="pacjentView.fxml" />
+                    </content>
+                </Tab>
+                <Tab fx:id="ReceptyTabela" text="Recepty">
+                    <content>
+                        <fx:include fx:id="receptaViewId" source="receptaView.fxml" />
+                    </content>
+                </Tab>
+                <Tab fx:id="ProduktyTabela" text="Produkty">
+                    <content>
+                        <fx:include fx:id="produktViewId" source="produktView.fxml" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</VBox>

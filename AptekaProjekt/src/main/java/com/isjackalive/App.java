@@ -1,20 +1,19 @@
 package com.isjackalive;
 
 import com.isjackalive.entity.Doktor;
-import com.isjackalive.entity.Pacjent;
-import com.isjackalive.entity.Recepta;
-import com.isjackalive.table.TableMain;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.IOException;
 
 /**
@@ -25,35 +24,21 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static EntityManagerFactory emf;
+
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
 
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session = sessionFactory.openSession();
+            emf = Persistence.createEntityManagerFactory("apteka-projekt");
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("Main.fxml"));
+            VBox mainPane = loader.load();
+            Scene scene = new Scene(mainPane);
 
-        Doktor doktor1 = new Doktor();
-        doktor1.setImie("Jan");
-
-        Pacjent pacjent1 = new Pacjent();
-        pacjent1.setImie("Marek");
-
-        Recepta recepta = new Recepta();
-        recepta.setDoktor(doktor1);
-        recepta.setPacjent(pacjent1);
-
-        scene = new Scene(loadFXML("tableView"));
-        stage.setScene(scene);
-        stage.show();
-<<<<<<< Updated upstream
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session = sessionFactory.openSession();
-=======
-        stage.setTitle("Recepty-projekt");
-
->>>>>>> Stashed changes
-        session.close();
+            stage.setTitle("Recepta-projekt");
+            stage.setScene(scene);
+            stage.show();
     }
 
     public static void setRoot(String fxml) throws IOException {
@@ -62,7 +47,6 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource( fxml + ".fxml"));
-
         //fxmlLoader.setController(TableMain.getInstance());
         return fxmlLoader.load();
     }

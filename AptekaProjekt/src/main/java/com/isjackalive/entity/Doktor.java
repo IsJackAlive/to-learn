@@ -1,6 +1,12 @@
 package com.isjackalive.entity;
 
+import org.hibernate.Cache;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,9 +26,9 @@ public class Doktor {
     @Column(name = "telefon")
     private String telefon;
 
-    @OneToMany
-    @JoinColumn(name = "id_doktor")
 
+    @OneToMany
+    @JoinColumn(name = "doktor")
     private Set<Recepta> recepty;
 
     public Integer getId() {
@@ -64,4 +70,47 @@ public class Doktor {
     public void setRecepty(Set<Recepta> recepty) {
         this.recepty = recepty;
     }
+
+    public Doktor getDoktorById(int id)
+    {
+        Doktor doktor = null;
+        Session session = MainHib.getSessionFactory().openSession();
+        try {
+            doktor =  (Doktor) session.get(Doktor.class, id);
+            Hibernate.initialize(doktor);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        return doktor;
+    }
+
+    public Doktor getDoktorByName(String imie)
+    {
+        Session session = MainHib.getSessionFactory().openSession();
+        Doktor dok = null;
+        try {
+            dok = (Doktor)
+                    session.createSQLQuery("select * from doktorzy where imie = '" + imie + "';")
+                            .addEntity(Doktor.class).uniqueResult();
+            session.close();
+        }
+        finally {
+            return dok;
+        }
+    }
+
+    public Doktor getDoktorByLastName(String obj)
+    {
+        Session session = MainHib.getSessionFactory().openSession();
+        Doktor dok = (Doktor)
+                session.createSQLQuery("select * from doktorzy where nazwisko = '" + obj + "';")
+                        .addEntity(Doktor.class).uniqueResult();
+        session.close();
+        return dok;
+    }
 }
+

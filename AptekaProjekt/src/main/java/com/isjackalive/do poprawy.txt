@@ -1,0 +1,6 @@
+- javadoc
+- dokumentacja
+    instrukcja uruchomienia (wersja, db, instalka sqlLite)
+    prezentacja mozliwosci programu screen i wyniki
+    krótki opis tematyki projektu, diagram ERD
+- szukaj edycja usuń, filtry, dodawanie

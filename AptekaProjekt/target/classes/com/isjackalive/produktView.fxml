@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isjackalive.controller.ProduktControler">
+    <children>
+
+        <VBox layoutX="100.0" prefHeight="119.0" prefWidth="498.0">
+            <children>
+                <TextField alignment="CENTER" editable="false" prefHeight="25.0" prefWidth="420.0" text="Produkty" />
+            </children>
+        </VBox>
+        <TableView fx:id="produktViewTable" layoutX="10.0" layoutY="118.0" prefHeight="272.0" prefWidth="579.0">
+            <columns>
+                <TableColumn fx:id="produktViewIdColumn" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="produktViewCenaColumn" prefWidth="95.0" text="Cena" />
+                <TableColumn fx:id="produktViewDataColumn" prefWidth="200.0" text="Data produkcji" />
+                <TableColumn fx:id="produktViewNazwaColumn" prefWidth="140.0" text="Nazwa" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

@@ -21,7 +21,7 @@ public class Pacjent {
     private String telefon;
 
     @OneToMany
-    @JoinColumn(name = "id_pacjent")
+    @JoinColumn(name = "pacjent")
 
     private Set<Recepta> recepty;
 

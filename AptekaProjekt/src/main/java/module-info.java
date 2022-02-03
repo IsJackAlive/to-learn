@@ -1,4 +1,5 @@
 module com.isjackalive {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
     requires java.persistence;
@@ -7,10 +8,9 @@ module com.isjackalive {
     requires java.sql;
 
     opens com.isjackalive.entity to org.hibernate.orm.core;
-    opens com.isjackalive to javafx.fxml;
+    opens com.isjackalive to javafx.fxml, javafx.graphics;
+    opens com.isjackalive.controller to javafx.fxml;
 
-    exports com.isjackalive;
     exports com.isjackalive.entity;
-    exports com.isjackalive.Controller;
-    opens com.isjackalive.Controller to javafx.fxml;
+    exports com.isjackalive.controller;
 }
