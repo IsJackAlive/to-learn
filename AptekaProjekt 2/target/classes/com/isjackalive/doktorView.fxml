@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isjackalive.controller.DoktorControler">
+   <children>
+         <VBox layoutX="-2.0" prefHeight="148.0" prefWidth="600.0">
+            <children>
+<!--                  <TextField alignment="CENTER" editable="false" pickOnBounds="false" prefHeight="25.0" prefWidth="420.0" text="Doktorzy" />-->
+            <HBox alignment="CENTER" prefHeight="157.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Id" />
+                        <TextField fx:id="idFiled" prefHeight="25.0" prefWidth="91.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Imię" />
+                        <TextField fx:id="imieFiled" prefHeight="25.0" prefWidth="91.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Nazwisko" />
+                        <TextField fx:id="nazwiskoFiled" prefHeight="25.0" prefWidth="91.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Telefon" />
+                        <TextField fx:id="telefonFiled" alignment="CENTER" prefHeight="25.0" prefWidth="91.0" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="75.0" prefWidth="131.0">
+                     <children>
+                        <Button fx:id="szukajButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Szukaj" />
+                        <Button fx:id="dodajButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Dodaj" />
+                        <Button fx:id="usunButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Usuń" />
+                        <Button fx:id="odswiezButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Odśwież" />
+                        <Button fx:id="wyczyscButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Wyczyść" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            </children>
+         </VBox>
+       <TableView fx:id="doktorViewTable" layoutX="10.0" layoutY="148.0" prefHeight="242.0" prefWidth="579.0">
+           <columns>
+               <TableColumn fx:id="doktorViewIdColumn" editable="false" prefWidth="75.0" text="Id" />
+               <TableColumn fx:id="doktorViewImieColumn" onEditCommit="#onEditCommitName" prefWidth="95.0" text="Imie" />
+               <TableColumn fx:id="doktorViewNazwiskoColumn" onEditCommit="#onEditCommitLastName" prefWidth="110.0" text="Nazwisko" />
+               <TableColumn fx:id="doktorViewTelefonColumn" onEditCommit="#onEditCommitPhone" prefWidth="140.0" text="Telefon" />
+           </columns>
+       </TableView>
+   </children>
+</AnchorPane>

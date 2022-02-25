@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isjackalive.controller.ProduktControler">
+    <children>
+        <VBox layoutX="-2.0" prefHeight="148.0" prefWidth="600.0">
+            <children>
+<!--                <TextField alignment="CENTER" editable="false" pickOnBounds="false" prefHeight="25.0" prefWidth="420.0" text="Produkty" />-->
+                <HBox alignment="CENTER" prefHeight="157.0" prefWidth="600.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Id" />
+                                <TextField fx:id="idFiled" prefHeight="25.0" prefWidth="91.0" />
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Cena" />
+                                <TextField fx:id="cenaFiled" prefHeight="25.0" prefWidth="91.0" />
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="TOP_LEFT" contentDisplay="BOTTOM" text="Termin przydatności" />
+                                <TextField fx:id="dataFiled" prefHeight="25.0" prefWidth="91.0" />
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Nazwa" />
+                                <TextField fx:id="nazwaFiled" alignment="CENTER" prefHeight="25.0" prefWidth="91.0" />
+                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="75.0" prefWidth="131.0">
+                            <children>
+                                <Button fx:id="szukajButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Szukaj" />
+                                <Button fx:id="dodajButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Dodaj" />
+                                <Button fx:id="usunButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Usuń" />
+                                <Button fx:id="odswiezButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Odśwież" />
+                                <Button fx:id="wyczyscButton" alignment="CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Wyczyść" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <TableView fx:id="produktViewTable" layoutX="10.0" layoutY="148.0" prefHeight="242.0" prefWidth="579.0">
+            <columns>
+                <TableColumn fx:id="produktViewIdColumn" editable="false" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="produktViewCenaColumn" onEditCommit="#onEditCommitPrice" prefWidth="95.0" text="Cena" />
+                <TableColumn fx:id="produktViewDataColumn" prefWidth="110.0" text="Termin przydatności" />
+                <TableColumn fx:id="produktViewNazwaColumn" onEditCommit="#onEditCommitName" prefWidth="140.0" text="Nazwa" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+.root
+{
+    -fx-background-color: #8fa0a8;
+    -fx-font-size: 12;
+    -fx-font-family: "Lucida Console";
+}
+
+.tab-pane{
+    -fx-tab-min-width:80px;
+}
+
+.tab-pane .tab{
+    -fx-background-insets: 0 0 0 0,0,0;
+    -fx-background-color: #fff;
+}
+
+.tab-pane .tab:selected{
+    -fx-background-color: #38686c;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #fff;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-width: 0, 0;
+}
+
+.table-view
+{
+    -fx-background-color: #38686c;
+    -fx-font-size: 11;
+}
