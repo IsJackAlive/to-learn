@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<meta charset="utf-8">
+		<title>Projekt TI</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	</HEAD>
+	<BODY>
+		<label class="modeSwitch">
+			<input type="checkbox" id="checkTheme">
+			<span class="mode"></span>
+		</label>
+			<header>
+			<ul>
+				<li><a href="#"> Strona główna </a></li>
+				<li><a href="#"> Więcej </a></li>
+			</ul>
+		</header>
+		<div class="main">
+			tutaj jest main 
+			MAIN
+			<a> Napiszę tu cokolwiek</a>
+			<h1> Projekt moja strona</h1>
+		</div>
+
+
+	<script>
+		$( "#checkTheme" ).on("click", function() {
+            if( $( "body" ).hasClass( "light-theme" )) {
+                $( "body" ).removeClass( "light-theme" );
+            } else {
+                $( "body" ).addClass( "light-theme" );
+            }
+        });
+	</script>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</BODY>
+</HTML>

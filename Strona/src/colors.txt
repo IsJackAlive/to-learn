@@ -1,0 +1,25 @@
+:root
+{
+	scroll-behavior: smooth;
+
+	--color1: #36454f;	/*	background 	*/
+	--color2: #0acbff;	/*	navigation select 	*/
+	--color3: #fff;		/*	navigation bar 	*/
+	--color4: yellow;	/*	tekst	*/
+}
+
+.light-theme
+{
+	--color1: #ffdfdb;	/*	background 	*/
+	--color2: #cf2f2f;	/*	navigation select 	*/
+	--color3: #ff0000;	/*	navigation bar 	*/
+	--color4: green;	/*	tekst	*/
+}
+
+lightBlue:	#b9dadf
+skyBlue:	#7dc0d1
+darkBlue:	#1d7f8c
+lightBrown: #c36742
+lightOrange:#f0a272
+sandy:		#f9e79e
+DarkSandy:	#aea16e

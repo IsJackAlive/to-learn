@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<HTML lang="pl">
+	<HEAD>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Projekt Gitara</title>
+		<link rel="stylesheet" type="text/css" href="src/style.css">
+		<script type="text/javascript" src="src/jquery-3.6.0.js"></script>
+	</HEAD>
+	<BODY>
+
+		<!--	Górny pasek		-->
+		<a name="start"/>
+		<header>
+			<a href="#" class="logo"> Gitara </a>
+			<ul>
+				<li><a href="index.html"> Strona główna </a></li>
+				<li><a href="#kontakt"> Kontakt </a></li>
+			</ul>
+
+			<label class="modeSwitch">
+				<input type="checkbox" id="checkTheme">
+				<span class="mode"></span>
+			</label>
+		</header>
+		<section class="banner">
+		
+		<!--	Intro		-->		
+		<div class="intro">
+			<h1 class="intro_title" >
+				Sześć strun.
+			</h1>
+			<p class="intro_subtitle" >
+				Przewodnik po świecie gitar.
+			</p>
+			<div class="intro_tag">
+			<h3>
+				„Nie ma nic piękniejszego od gitary, chyba że dwie.”
+			</h3>
+			<p>
+				- Fryderyk Chopin
+			</p>
+			</div>
+
+		</div>
+		
+
+		<!--	Treść	-->	
+		<div class="content">
+
+			<h2 class="content_title"> Rodzaje gitar: <BR/> <BR/> <BR/>
+				Klasyczna
+				<BR/> <BR/>
+				Elektro-Akustyczna
+				<BR/> <BR/>
+				Elektryczna
+			</h2>
+
+				<div class="content_panel">
+					<h3>Czym się różnią?</h3>
+					<p> Przede wszystkim brzmieniem, budową oraz ilością strun, a także materiałem
+					z jakiego są wykonane.</p>
+					<br/>
+					<h3>Instrumenty dzielimy na trzy grupy:</h3>
+			
+					<ul>
+						<li> Klasyczne </li>
+						<li> Elektro-Akustyczne </li>
+						<li> Elektryczne </li>
+					</ul>
+
+					<BR/> <BR/> <BR/> <BR/> 
+					Ciepłe i miękkie brzmienie, dzięki nylonowym strunom. Duże odstępy między strunami 
+					(szeroki gryf), pudło rezonansowe. Przeznaczona do grania muzyki klasycznej, lini melodyjnej.
+					<BR/> <BR/> <BR/> <BR/> 
+					Ten typ gitary najczęściej kojarzy się z graniem przy ognisku. Większe pudło rezonansowe, niż w przypadku gitary klasycznej i węższym gryfie.
+					Metalowe struny, ostre w dotyku. Zwykle z wbudowanym systemem nagłaśniającym.
+					Gitara ta odnajduje zastosowanie do grania muzyki z akordów, oraz często pełni
+					rolę gitary rytmicznej.
+					<BR/> <BR/> <BR/> <BR/>
+					Nie posiada pudła rezonansowego. Wyróżniamy dwa rodzaje: gitara basowa i gitara elektryczna. Ta pierwsza najczęściej posiada 4 grube metalowe struny i szersze progi, pełni rolę gitary rytmicznej. Natomiast gitara, która dla niewtajemniczonych kojarzy się z zaimkiem 'elektryczna' może pełnić wiele funkcji muzycznych, teoretycznie wszystkie wyżej wspomniane, jednak w praktyce najlepiej sprawdza się jako gitara prowadząca i rytmiczna.
+				</div>
+		</div>
+		</section>
+
+			<!--	Kontakt 	-->
+			<div class="end">
+				
+				<div class="end_kontakt">
+				<a name="kontakt" class="kontakt_text">
+					Email : przykladowy@email.com 		<br/>
+					Adres : Rzeszów ul.Mickiewicza 12 	<br/>
+				</a>
+
+
+				<h4>Zapisz się na newsletter</h4>
+				<input type="email_nwsltt" placeholder="twój email" class="submit_newsletter_email">
+				<input type="submit_nwsltt" value="Zapisz" class="submit_newsletter_btn" id="button1" readonly>
+					
+					<div class="social">
+					<a href="#" class="icon">
+						<ion-icon name="logo-facebook" alt="facebook"></ion-icon>
+					</a>
+					<a href="#" class="icon">
+						<ion-icon name="logo-instagram" alt="instagram"></ion-icon>
+					</a>
+					<a href="#" class="icon">
+						<ion-icon name="logo-youtube" alt="youtube"></ion-icon>
+					</a>
+					<a href="#start" class="icon">
+						<ion-icon name="chevron-up-circle-outline" alt="up"></ion-icon>
+					</a>
+					</div>
+				</div>
+			</div>
+		
+
+	<script>
+		$( "#checkTheme" ).on("click", function() {
+            if( $( "body" ).hasClass( "light-theme" )) {
+                $( "body" ).removeClass( "light-theme" );
+            } else {
+                $( "body" ).addClass( "light-theme" );
+            }
+        });
+
+        window.addEventListener("scroll", function()
+        {
+        	var header = document.querySelector("header");
+        	header.classList.toggle("sticky_nav", window.scrollY > 10);
+        });
+	</script>
+
+	<script type="text/javascript">
+
+		document.addEventListener("submit_nwsltt", (e) => {
+			e.preventDefault();
+
+		});
+	</script>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	</BODY>
+</HTML>
